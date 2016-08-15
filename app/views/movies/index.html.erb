@@ -1,0 +1,23 @@
+
+<h1>Rotten Mangoes</h1>
+<%= link_to "Submit a movie!", new_movie_path %>
+<hr/>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Director</th>
+    <th>Runtime</th>
+    <th>Description</th>
+    <th>Poster IMG URL</th>
+    <th>Release Date</th>
+  </tr>
+<% @movies.each do |movie| %>
+  <tr>
+    <td><% movie.title %></td>
+    <td><% movie.director %></td>
+    <td><% movie.runtime_in_minutes %></td>
+    <td><% movie.description %></td>
+    <td><% movie.poster_image_url %></td>
+    <td><% movie.release_date %></td>
+  </tr>
+<% end %>
