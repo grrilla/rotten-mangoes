@@ -2,7 +2,7 @@
 <h1>Rotten Mangoes</h1>
 <%= link_to "Submit a movie!", new_movie_path %>
 <hr/>
-<table>
+<table width="100%">
   <tr>
     <th>Title</th>
     <th>Director</th>
@@ -18,8 +18,8 @@
     <td><%= movie.director %></td>
     <td><%= movie.runtime_in_minutes %></td>
     <td><%= movie.description %></td>
-    <td><%= link_to image_tag(movie.poster_image_url), movie_path(movie) %></td>
-    <td><%= movie.release_date %></td>
-    <td><%= @movie.review_average %>/10</td>
+    <td><%= link_to image_tag(movie.image_url(:thumb)), movie_path(movie) %></td>
+    <td><%= formatted_date(movie.release_date) %></td>
+    <td><%= movie.review_average %>/10</td>
   </tr>
 <% end %>
