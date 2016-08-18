@@ -1,26 +1,28 @@
 class ReviewsController < ApplicationController
 
-     def new
-       @movie = Movie.find(params[:movie_id])
-       @review = @movie.reviews.build
-     end
+  before_filter :restrict_access
 
-     def create
-       @movie = Movie.find(params[:movie_id])
-       @review = @movie.reviews.build(review_params)
-       @review.user_id = current_user.id
+  def new
+    @movie = Movie.find(params[:movie_id])
+    @review = @movie.reviews.build
+  end
 
-       if @review.save
-         redirect_to @movie, notice: "Review created successfully"
-       else
-         render :new
-       end
-     end
+  def create
+    @movie = Movie.find(params[:movie_id])
+    @review = @movie.reviews.build(review_params)
+    @review.user_id = current_user.id
 
-     protected
+    if @review.save
+      redirect_to @movie, notice: "Review created successfully"
+    else
+      render :new
+    end
+  end
 
-     def review_params
-       params.require(:review).permit(:text, :rating_out_of_ten)
-     end
+  protected
 
-   end
+    def review_params
+      params.require(:review).permit(:text, :rating_out_of_ten)
+    end
+
+end
