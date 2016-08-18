@@ -10,6 +10,7 @@
     <th>Description</th>
     <th>Poster IMG URL</th>
     <th>Release Date</th>
+    <th>Avg. Rating</th>
   </tr>
 <% @movies.each do |movie| %>
   <tr>
@@ -19,5 +20,6 @@
     <td><%= movie.description %></td>
     <td><%= link_to image_tag(movie.poster_image_url), movie_path(movie) %></td>
     <td><%= movie.release_date %></td>
+    <td><%= @movie.review_average %>/10</td>
   </tr>
 <% end %>
