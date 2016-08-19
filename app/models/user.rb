@@ -2,6 +2,8 @@ class User < ApplicationRecord
   has_secure_password
   has_many :reviews
 
+  paginates_per 1
+
   validates :email,
     presence: true
 
@@ -17,5 +19,5 @@ class User < ApplicationRecord
   def full_name
     "#{firstname} #{lastname}"
   end
-  
+
 end
