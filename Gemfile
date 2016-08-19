@@ -18,7 +18,7 @@ gem 'coffee-rails', '~> 4.2'
 # Use CarrierWave for File Uploads (i.e. movie poster images)
 gem 'carrierwave'
 gem 'rmagick'
-
+gem 'kaminari'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
